@@ -1,0 +1,156 @@
+#about{
+  position: relative;
+  opacity: 0;
+  color: #FFF;
+  text-shadow: 0px 0px 10px rgba(0,0,0,.5)
+}
+.site_name{
+  font-size: 50px;
+}
+
+.header{
+  background: linear-gradient(15deg, #5DCC90 70%, #ADD962);
+  color: #214732;
+  min-height: 10vh;
+  font-family: "Ubuntu";
+}
+
+.sitename{
+  color:#F5F5F5;
+  margin: 1em;
+}
+
+.btn{
+  background: #5DCC90;
+  color:#FFF;  
+  min-width: 120px;
+  min-height: 40px;
+  font-size: 20px;
+  border: 1px solid white;
+}
+
+.btn:hover, .btn:active, .btn:focus{
+  animation: MenuBtnHover .5s;
+  color:#FFF;
+  background: #5AB283;
+  border: none;
+  box-shadow: 0px 10px 10px 1px rgba(0,0,0,0.1)
+}
+
+.menu{
+  margin: 3em auto;
+  float: right;
+}
+
+@keyframes MenuBtnHover{
+  from {
+    background: #5DCC90;
+    color:#FFF;  
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0)
+  }
+  to {
+    color:#FFF;
+    background: #5AB283;
+    box-shadow: 0px 10px 10px 1px rgba(0,0,0,0.1)
+  }
+}
+
+.jumbotron{
+  font-family: "Raleway";
+  background: #F5F5F5;
+  min-height: 500px;
+  padding: 1em;
+  margin: 0;
+}
+
+.about{
+  background: url("https://images.unsplash.com/photo-1416339442236-8ceb164046f8?dpr=1&auto=format&crop=entropy&fit=crop&w=1199&h=867&q=80") no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.skills{
+  background: linear-gradient(15deg, #3DE8D9, #3D83D9);
+  color: #FFF;
+}
+
+.skills li::first-letter{
+  font-size: 30px;
+}
+
+.skillset{
+  padding: 1em;
+  margin: 2vh 0;
+  background: linear-gradient(15deg, rgba(255,255,255, 0.1) 40%, rgba(255,255,255, 0.3) );
+  border-radius: 5px;
+  transition: transform .1s, box-shadow .1s;
+  font-family: 'Indie Flower';
+}
+
+.skillset:hover{
+  transform: rotateY(5deg) rotateX(30deg) ;
+  box-shadow: 0px 10px 10px 1px rgba(0,0,0,0.1)
+}
+
+.center{
+  text-align:center;
+}
+.strng{
+  font-weight: bold;
+}
+.skills .logo{
+  height: 100px;
+}
+
+
+.carousel-holder{
+  background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%,rgba(255, 255, 255, 0)30%, rgba(255, 255, 255, 0)50%, rgba(255, 255, 255, 0)70%, rgba(255, 255, 255, 1) 100%);
+  z-index: 0;
+}
+
+.ch{
+  position: relative;
+  background: #FFF;
+  z-index: -2;
+  min-height: 70vh;
+  max-width: 100%;
+  overflow: hide;
+}
+
+.card{
+  margin: 2em 2em;
+  padding: 1em;
+  height: 300px;
+  max-height: 300px;
+  width: 400px;
+  background-color: #BF6E55;
+  box-shadow: 0px 10px 10px 0px rgba(0,0,0, .4);  
+}
+
+
+.music{
+  background: #FFCBAF;
+}
+
+@media (max-width: 1000px) {
+  .menu{
+    margin: 1em;
+    float: none;
+  }
+} 
+
+@media (max-width: 700px) {
+  .header{
+    height: 100vh;
+    overflow: hide;
+  }
+  .sitename{
+    margin-top: 30vh;
+  }
+  .menu > a{
+    display: block;
+    border: none;
+    margin: 1em;
+    
+  }
+} 
