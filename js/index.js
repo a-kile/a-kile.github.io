@@ -10,7 +10,6 @@ $('document').ready(function(){
   }, 1000, function() {
     // Animation complete.
   });
-
 })
 
 function generateParticles(parent, amount){
