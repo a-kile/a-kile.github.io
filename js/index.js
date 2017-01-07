@@ -13,15 +13,6 @@ $('document').ready(function(){
 
 })
 
-function accordian(obj, btns){
-  for(var i=0; i < btns.length; i++){
-    btns[i].addEventListener("Click");
-    })
-  }
-}
-
-accordian("d", document.getElementsByClassName["accord"][0].childNodes)
-
 function generateParticles(parent, amount){
   for (var i=0; i < amount; i++){
     var particle = document.createElement("span");
