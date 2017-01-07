@@ -1,6 +1,6 @@
 #blackout{
   background: #000;
-  height: 100vh;
+  height: 10000vh;
   width: 100%;
   position: absolute;
   z-index: 10;
@@ -168,9 +168,38 @@
 
 /* Particles */
 .particle{
-  width: 10px;
-  height: 10px;
+  min-width: 10px;
+  min-height: 10px;
   position: relative;
+  top: 0;
+  display: inline-block;
   background: #FF11B2;
   margin: 1em;
+  border-radius: 50%;
+  transition: transform 0.1s;
+}
+
+.particle:hover{
+  transform:scale(10);
+}
+
+
+/* Accordian */
+.accord{
+  list-style: none;
+}
+
+.accord li{
+  background: #FFF;
+  border-radius: 25px;
+  padding: 1em;
+  margin: 1em;
+  transition: transform 0.1s, box-shadow 0.2s;
+}
+
+.accord li:hover{
+  z-index: 5;
+  transform: rotateY(10deg) scale(1.05) rotateZ(2.5deg);
+  background: red;
+  box-shadow: 10px 10px 10px 1px rgba(0,0,0,0.2);
 }
