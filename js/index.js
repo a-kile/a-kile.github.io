@@ -12,11 +12,16 @@ $('document').ready(function(){
   });
 })
 
-function generateParticles(parent, amount){
-  for (var i=0; i < amount; i++){
-    var particle = document.createElement("span");
-    parent.appendChild(particle);
-    particle.className = "particle";
-  }
-}
-generateParticles(document.getElementsByClassName("fly-through")[0], 100);
+// Hobbie #1
+$('#web_dev_b').hover(function(){
+  $('#web_dev_c').show();
+}, function(){
+  $('#web_dev_c').hide();
+});
+
+// Hobbie #2
+$('#g_dev_b').hover(function(){
+  $('#g_dev_c').show();
+}, function(){
+  $('#g_dev_c').hide();
+});
