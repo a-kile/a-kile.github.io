@@ -175,6 +175,10 @@
 }
 
 
+.header{
+  margin-right: 0px;
+}
+
 /* Accordian */
 .accord{
   list-style: none;
@@ -205,4 +209,30 @@
   width: 400px;
   background-color: #BF6E55;
   box-shadow: 0px 10px 10px 0px rgba(0,0,0, .4);
+}
+.gamedev_h{padding: 0;}
+
+.gamedev_h{
+  color: #FFF;
+  font-weight: 700;
+  overflow: hidden;
+  background: url('../media/game_dev.jpg') no-repeat 100% 10%;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 500px;
+  min-width: 400px;
+  transition: background 10s;
+}
+
+.gamedev_h:hover{
+  background: linear-gradient(to left, #41295a , #2F0743); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+.footer{
+  background: #141E30; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #141E30 , #243B55); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #141E30 , #243B55); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color:#FFF;
+  height: 100vh;
 }

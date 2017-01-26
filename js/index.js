@@ -11,17 +11,3 @@ $('document').ready(function(){
     // Animation complete.
   });
 })
-
-// Hobbie #1
-$('#web_dev_b').hover(function(){
-  $('#web_dev_c').show();
-}, function(){
-  $('#web_dev_c').hide();
-});
-
-// Hobbie #2
-$('#g_dev_b').hover(function(){
-  $('#g_dev_c').show();
-}, function(){
-  $('#g_dev_c').hide();
-});
