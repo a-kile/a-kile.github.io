@@ -10,7 +10,8 @@
   position: relative;
   opacity: 0;
   color: #FFF;
-  text-shadow: 0px 0px 10px rgba(0,0,0,.5)
+  text-shadow: 0px 0px 10px rgba(0,0,0,.5);
+  text-align: center;
 }
 .site_name{
   font-size: 50px;
@@ -235,4 +236,5 @@
   background: linear-gradient(to left, #141E30 , #243B55); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color:#FFF;
   height: 100vh;
+  text-align: center;
 }
