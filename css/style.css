@@ -75,7 +75,7 @@
 }
 
 .about{
-  background: url("media/landing-background.jpg") no-repeat;
+  background: url("../media/landing-background.jpg") no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
