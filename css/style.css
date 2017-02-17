@@ -22,8 +22,30 @@
   color: #214732;
   min-height: 10vh;
   font-family: "Ubuntu";
-  width: auto;
+  z-index: 1000;
 }
+
+@media (min-width: 1000px){
+  .header{max-height: 156px;}
+  .header-f{
+    max-height: 100px;
+    position:fixed;
+    display:block;
+    min-width: 100%;
+    animation: slide-in .5s;
+  }
+
+  @keyframes slide-in{
+    0%{
+      top: -126px;
+    }
+    100%{
+      top: 0px;
+    }
+  }
+
+}
+
 
 .sitename{
   color:#F5F5F5;
