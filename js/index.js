@@ -31,7 +31,7 @@ var projectsTrigger = 1000;
 
 window.addEventListener("scroll", function(e){
   if (window.scrollY >= headerTrigger){
-    if (!hasClass(document.getElementsByClassName("header")[0], "header-f")){
+    if (!hasClass(document.getElementsByClassName("header")[0], "header-f") ){
       document.getElementsByClassName("header")[0].className += " header-f";
     }
   } else if (window.scrollY <= headerTrigger){

@@ -19,14 +19,17 @@
 
 .header{
   background: linear-gradient(15deg, #5DCC90 70%, #ADD962);
-  color: #214732;
+  color:#F5F5F5;
   min-height: 10vh;
   font-family: "Ubuntu";
   z-index: 1000;
+  margin-right: 0;
 }
 
 @media (min-width: 1000px){
-  .header{max-height: 156px;}
+  .header{
+    max-height: 156px;
+  }
   .header-f{
     max-height: 100px;
     position:fixed;
@@ -34,7 +37,11 @@
     min-width: 100%;
     right: 0;
     animation: slide-in .5s;
+    background: linear-gradient(15deg, #ADD962, #5DCC90 70%);
+    color:#FFF;
   }
+
+  .sitename_holder-f{margin:0;}
 
   @keyframes slide-in{
     0%{
@@ -44,14 +51,13 @@
       top: 0px;
     }
   }
-
 }
 
 
-.sitename{
-  color:#F5F5F5;
+.sitename_holder{
   margin: 1em;
 }
+
 
 .btn{
   background: #5DCC90;
@@ -181,76 +187,7 @@
 }
 
 
-/* Particles */
-.particle{
-  min-width: 10px;
-  min-height: 10px;
-  position: relative;
-  top: 0;
-  display: inline-block;
-  background: #FF11B2;
-  margin: 1em;
-  border-radius: 50%;
-  transition: transform 0.1s;
-}
 
-.particle:hover{
-  transform:scale(10);
-}
-
-
-.header{
-  margin-right: 0px;
-}
-
-/* Accordian */
-.accord{
-  list-style: none;
-}
-
-.accord li{
-  background: #FFF;
-  border-radius: 25px;
-  padding: 1em;
-  margin: 1em;
-  z-index: 1;
-  transition: transform 0.1s, box-shadow 0.2s, color .1s, background .1s;
-}
-
-.accord li:hover{
-  z-index: 5;
-  transform: rotateY(10deg) scale(1.1) rotateZ(2.5deg);
-  box-shadow: 10px 10px 10px 1px rgba(0,0,0,0.2);
-}
-
-
-.card{
-  color: #FFF;
-  margin: 2em 2em;
-  padding: 1em;
-  height: 300px;
-  max-height: 300px;
-  width: 400px;
-  background-color: #BF6E55;
-  box-shadow: 0px 10px 10px 0px rgba(0,0,0, .4);
-}
-.gamedev_h{padding: 0;}
-
-.gamedev_h{
-  color: #FFF;
-  font-weight: 700;
-  overflow: hidden;
-  background: url('../media/game_dev.jpg') no-repeat 100% 10%;
-  background-attachment: fixed;
-  background-size: cover;
-  min-height: 500px;
-  min-width: 400px;
-  transition: background 10s;
-}
-
-.gamedev_h:hover{
-  background: linear-gradient(to left, #41295a , #2F0743); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
 
 
 .footer{
