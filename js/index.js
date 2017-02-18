@@ -28,15 +28,15 @@ function replaceString(str, query, after) {
 
 var headerTrigger = 126;
 var projectsTrigger = 1000;
-
+var header = document.getElementsByClassName("header")[0];
 window.addEventListener("scroll", function(e){
   if (window.scrollY >= headerTrigger){
-    if (!hasClass(document.getElementsByClassName("header")[0], "header-f") ){
-      document.getElementsByClassName("header")[0].className += " header-f";
+    if (!hasClass(header, "header-f") ){
+      header.className += " header-f";
     }
   } else if (window.scrollY <= headerTrigger){
-    if (hasClass(document.getElementsByClassName("header")[0], "header-f")){
-      document.getElementsByClassName("header")[0].className = replaceString(document.getElementsByClassName("header")[0].className, "header-f", "");
+    if (hasClass(header, "header-f")){
+      header.className = replaceString(header.className, "header-f", "");
     }
   }
 });
