@@ -1,0 +1,102 @@
+*{
+    padding:  0;
+    margin:  0;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+body {
+    background-color: #d7e4d7;
+    color: #959595;
+    font-size:  20px;
+    font-family: 'Adobe Gothic Std';
+}
+
+#Header {
+    background: url('../images/PageTopBackgroundImage1.png');
+    background-size: contain;
+    height:  500px;
+    padding:  2em 0 0 0;
+    color: #fff;
+    background-repeat: repeat-x;
+    display: block;
+}
+
+.Footer {
+    background: url('../images/PageBottomBackgroundImage1.png');
+    background-size: contain;
+    height:  500px;
+    color: #fff;
+    background-repeat: repeat-x;
+    display: block;
+}
+
+
+#Logo {
+    margin:  0px 0px 0px 50px;
+    font-size:  80px;
+}
+
+.Holder{
+    min-height:  700px;
+    display: block;
+    background-color: #D7E4D7;
+    margin-left: 0 0 0 0;
+}
+
+.PageBody{
+  background: #FFF;
+  border-radius: 5px;
+  margin: 1em auto;
+  max-width: 1100px;
+  height: 1000px;
+  color: #000;
+}
+
+.BigFooter{
+    background-color: #a3c9a3;
+    height:  400px;
+    color: #fff;
+    padding:  50px;
+    background-repeat: repeat-x;
+    display: block;
+}
+
+.Fcol{
+    float: left;
+    width:  200px;
+}
+
+.Mcol{
+    float: left;
+    height:  200px;
+}
+
+.feedback > textarea{
+    max-height:  200px;
+    max-width: 500px;
+    height:  200px;
+    width:  500px;
+    border:  0px;
+    background-color: #8eaa8e;
+    color:  #fff;
+    font-size:  20px;
+    padding:  10px;
+    float: left;
+}
+
+.feedback > button{
+    max-height:  50px;
+    max-width: 100px;
+    height:  50px;
+    width:  100px;
+    border:  0px;
+    background-color: #8eaa8e;
+    float: right;
+    color:  #fff;
+    font-size:  20px;
+    padding:  10px;
+}

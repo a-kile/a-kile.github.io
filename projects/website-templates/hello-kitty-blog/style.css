@@ -1,0 +1,89 @@
+html, body{padding:0; margin:0;box-sizing: border-box;}
+body{
+  background: #B1E1EE;
+}
+a, a:visited, a:hover, a:active{text-decoration: none;color:inherit;}
+
+.header{
+  min-height: 400px;
+  background: #B1E1EE;
+  background: url('img/header-bg.png') no-repeat;
+  background-position: left;
+}
+
+.brand{
+  margin-left: 1em;
+  max-width: 70%;
+  float: left;
+  color:#FFF;
+  font-family: "Rock Salt", cursive;
+  font-size: 25px;
+}
+
+.navbar{
+  margin: 1em;
+  float: right;
+  color:#FFF;
+  font-family: "Rock Salt", cursive;
+  font-size: 25px;
+  list-style: none;
+}
+
+.navbar li{
+  min-height: 50px;
+  min-width: 200px;
+  float: left;
+  background: url('img/btn-norm.png') no-repeat 10%;
+  background-size: contain;
+  padding: .3em;
+  margin: .1em;
+}
+
+.navbar li:hover{
+  background: url('img/btn-hovr.png') no-repeat 10%;
+  cursor: pointer;
+}
+
+.blogholder{
+  min-height: 1000px; /* for testing */
+  max-width: 80%;
+  background:#FFF;
+  margin: 0 10%;
+  border-radius: 15px;
+  box-shadow: 0 100px 100px 10px rgba(48,95,107, .8);
+  margin-bottom: 10em;
+  color: #305F6B;
+  padding: 1em;
+}
+.blog-post{
+  font-family: 'Shadows Into Light Two', cursive;
+  padding: 1em;
+  margin: 5em 0;
+  background: #FFF;
+  min-height: 300px;
+  border-radius: 15px;
+  box-shadow: 0 20px 50px 1px rgba(48,95,107, .1);
+}
+.post-title{
+  font-size: 30px;
+  font-family: 'Bangers', cursive;
+}
+.post-desc{
+  font-size: 12px;
+  margin-bottom: 1em;
+}
+.footer{
+  font-family: 'Bangers', cursive;
+  min-height: 10px;
+  background: #305F6B;
+  background: url('img/footer-bg.png') no-repeat;
+  background-position: top;
+  padding-top: 10%;
+  font-size: 20px;
+  color: #FFF;
+  text-align: center;
+}
+
+.footer h1{
+  margin: 0;
+}

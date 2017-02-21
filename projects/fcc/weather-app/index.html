@@ -1,0 +1,39 @@
+<!DOCType html>
+<html>
+  <head>
+    <title>Weather App</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/palette.css"/>
+    <link rel="stylesheet" href="css/weather-icons.css">
+    <link rel="stylesheet" href="css/weather-icons-wind.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
+    <script type="text/javascript" charset="utf-8" src="action/program.js"></script>
+    <script type="text/javascript" charset="utf-8" src="action/behaviour.js"></script>
+  </head>
+  <body>
+    <!-- Header Starts -->
+    <div class="navbar navbar-default primary-text-color">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Weather App</a>
+        </div>
+      </div>
+    </div>
+    <!-- Header Ends -->
+    <!-- Body Starts -->
+    <div class="container-fluid ">
+      <div class="col-md-8 app">
+        <center>
+          <button class="btn" id="unit-toggle">Change Units</button>
+          <h1 id="weather">tmp</h1>
+          <h2><i id="icon"></i></h2>
+          <h3 id="details">details</h3>
+        </center>
+      </div>
+    </div>
+  </body>
+</html>
