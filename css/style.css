@@ -193,9 +193,10 @@
     color: #FFF;
     background: radial-gradient(at top right,#171329 70%, #7F2A1D);
     min-height: 700px;
-}
+    overflow-x: hidden;
 
-#next{
+}
+#start{
     width: 150px;
     min-height: 40px;
     font-size: 20px;
@@ -203,6 +204,23 @@
     border-radius: 25px;
     border: none;
 }
+
+.projects{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+
+.projects .project{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    float-flef
+}
+
+
+
 
 
 .footer{
