@@ -186,8 +186,23 @@
   }
 }
 
+#fcc{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    color: #FFF;
+    background: radial-gradient(at top right,#171329 70%, #7F2A1D);
+    min-height: 700px;
+}
 
-
+#next{
+    width: 150px;
+    min-height: 40px;
+    font-size: 20px;
+    background: blue;
+    border-radius: 25px;
+    border: none;
+}
 
 
 .footer{
