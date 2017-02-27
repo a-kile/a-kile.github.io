@@ -204,23 +204,6 @@
     border: none;
 }
 
-.projects{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    position: absolute;
-    opacity: 0;
-}
-
-
-.projects .project{
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    background: blue;
-
-}
-
 
 
 
