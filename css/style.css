@@ -194,7 +194,6 @@
     background: radial-gradient(at top right,#171329 70%, #7F2A1D);
     min-height: 700px;
     overflow-x: hidden;
-
 }
 #start{
     width: 150px;
@@ -208,7 +207,9 @@
 .projects{
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-start;
+    justify-content: space-around;
+    position: absolute;
+    opacity: 0;
 }
 
 
@@ -216,7 +217,8 @@
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
-    float-flef
+    background: red;
+    
 }
 
 
