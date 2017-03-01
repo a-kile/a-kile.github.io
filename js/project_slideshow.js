@@ -1,5 +1,21 @@
 var button = document.getElementById("start");
-var proj = document.getElementById("proj_container");
+var projects = {
+    "Tribute Page" : {
+        link : "NO LINK FOR THIS YER"
+    },
+    "Random Quote Machine" : {
+
+    },
+    "Local Weather App" : {
+
+    },
+    "Search Wikipedia" : {
+
+    },
+    "Twitch Streamers Watch" : {
+
+    }
+}
 
 
 button.addEventListener("mouseover", function(){
@@ -9,6 +25,8 @@ button.addEventListener("mouseover", function(){
 });
 
 button.addEventListener("click", function(){
+    var proj = document.getElementById("proj_container");
+    var domProj = document.getElementById("fcc");
 
     var anim = proj.animate({
         transform: ["rotate3d(0,0,0, 0deg)", "rotate3d(1,1,0, 15deg) scale(30)"],
@@ -19,5 +37,14 @@ button.addEventListener("click", function(){
 
     anim.onfinish = function(){
         proj.remove();
+
+        for(project in projects){
+            var ap = document.createElement("div");
+            ap.innerHTML = "<h1>" + project +  "</h1>";
+            document.getElementById("fcc").appendChild(ap);
+        }
     }
+
+
+
 });
