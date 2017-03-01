@@ -193,8 +193,12 @@
     color: #FFF;
     background: radial-gradient(at top right,#171329 70%, #7F2A1D);
     min-height: 700px;
-    overflow-x: hidden;
+    overflow: hidden;
     perspective: 1000px
+}
+
+#proj_container{
+    transition: all 1s;
 }
 
 #start{
