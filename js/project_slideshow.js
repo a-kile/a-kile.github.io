@@ -9,8 +9,15 @@ button.addEventListener("mouseover", function(){
 });
 
 button.addEventListener("click", function(){
-    proj.animate({
+
+    var anim = proj.animate({
         transform: ["rotate3d(0,0,0, 0deg)", "rotate3d(1,1,0, 15deg) scale(30)"],
-    }, 4000);
+    }, {easing: 'ease-in',duration: 3000});
+
+    anim.play();
     proj.style.transform = "rotate3d(1,1,0, 15deg) scale(30)";
+
+    anim.onfinish = function(){
+        proj.remove();
+    }
 });
