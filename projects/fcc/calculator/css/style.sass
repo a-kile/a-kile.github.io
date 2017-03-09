@@ -19,10 +19,10 @@ body > h1
     font-size: 4em
 
 .calculator
-    color: #000
+    color: #FFF
     +flex(flex, column wrap, flex-start)
     width: 300px
-    height: 400px
+    min-height: 400px
     background: $mint-cream
     border-radius: 15px
     margin: auto
@@ -36,17 +36,21 @@ body > h1
             width: 4em
             height: 4em
             margin: .35em
-            color: #FFF
             border-radius: 100%
             background: lighten($pastel-red, 10%)
     .display
+        color: #FFF
+        font-size: 18px
         margin: 1em auto
         background: lighten($pastel-red, 15%)
         width: 95%
-        height: 4em
+        height: 3em
         text-align: right
+        padding: 1em
         border-radius: 50px
         transition: all ease-in-out .7s
-    .display:hover
+        border: none
+    .display:hover,.display:focus
         box-shadow: inset 0px 0px 100px 1px transparentize(darken($pastel-red, 42.5%), 0.75)
         cursor: pointer
+        outline: none
