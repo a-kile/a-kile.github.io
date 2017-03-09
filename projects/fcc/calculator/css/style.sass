@@ -1,5 +1,7 @@
 
 @import 'palette'
+@import 'https://fonts.googleapis.com/css?family=Oxygen:300,400,700'
+
 
 =flex($type, $direction, $position)
     display: $type
@@ -9,11 +11,20 @@
 body
     background: $pastel-red
     +flex(flex, column wrap, center)
+    font-family: 'Oxygen', sans-serif
+    text-align: center
+
+body > h1
+    color: #FFF
+    font-size: 4em
 
 .calculator
+    color: #000
     +flex(flex, column wrap, flex-start)
     width: 300px
     height: 400px
     background: $mint-cream
     border-radius: 15px
     margin: auto
+    box-shadow: 0px 0px 500px 1px darken($pastel-red, 42.5%)
+    padding: 1em

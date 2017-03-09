@@ -1,13 +1,21 @@
 /* Coolors Exported Palette - coolors.co/1a535c-4ecdc4-f7fff7-ff6b6b-ffe66d */
 /* HSL */
 /* RGB */
+@import 'https://fonts.googleapis.com/css?family=Oxygen:300,400,700';
 body {
   background: #ff6b6b;
   display: flex;
   flex-flow: column wrap;
-  justify-content: center; }
+  justify-content: center;
+  font-family: "Oxygen", sans-serif;
+  text-align: center; }
+
+body > h1 {
+  color: #FFF;
+  font-size: 4em; }
 
 .calculator {
+  color: #000;
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-start;
@@ -15,6 +23,8 @@ body {
   height: 400px;
   background: #f7fff7;
   border-radius: 15px;
-  margin: auto; }
+  margin: auto;
+  box-shadow: 0px 0px 500px 1px #910000;
+  padding: 1em; }
 
 /*# sourceMappingURL=style.css.map */
