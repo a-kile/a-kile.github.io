@@ -1,0 +1,20 @@
+/* Coolors Exported Palette - coolors.co/1a535c-4ecdc4-f7fff7-ff6b6b-ffe66d */
+/* HSL */
+/* RGB */
+body {
+  background: #ff6b6b;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center; }
+
+.calculator {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  width: 300px;
+  height: 400px;
+  background: #f7fff7;
+  border-radius: 15px;
+  margin: auto; }
+
+/*# sourceMappingURL=style.css.map */

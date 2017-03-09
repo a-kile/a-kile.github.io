@@ -1,0 +1,19 @@
+
+@import 'palette'
+
+=flex($type, $direction, $position)
+    display: $type
+    flex-flow: $direction
+    justify-content: $position
+
+body
+    background: $pastel-red
+    +flex(flex, column wrap, center)
+
+.calculator
+    +flex(flex, column wrap, flex-start)
+    width: 300px
+    height: 400px
+    background: $mint-cream
+    border-radius: 15px
+    margin: auto
