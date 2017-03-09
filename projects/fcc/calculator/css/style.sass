@@ -28,3 +28,25 @@ body > h1
     margin: auto
     box-shadow: 0px 0px 500px 1px darken($pastel-red, 42.5%)
     padding: 1em
+    .numpad
+        +flex(flex, row wrap, space-around)
+        .btn
+            +flex(flex, column wrap, center)
+            text-align: center
+            width: 4em
+            height: 4em
+            margin: .25em
+            color: #FFF
+            border-radius: 100%
+            background: lighten($pastel-red, 10%)
+    .display
+        margin: 1em auto
+        background: lighten($pastel-red, 15%)
+        width: 95%
+        height: 4em
+        text-align: right
+        border-radius: 50px
+        transition: all ease-in-out .7s
+    .display:hover
+        box-shadow: inset 0px 0px 100px 1px transparentize(darken($pastel-red, 42.5%), 0.75)
+        cursor: pointer
