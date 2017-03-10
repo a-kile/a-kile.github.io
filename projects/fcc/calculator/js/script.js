@@ -1,11 +1,21 @@
 
 
-var btns = document.getElementsByClassName("btn");
+var display = document.getElementById("display");
 
-for(var index in btns){
-    var btn = btns.item(index)
-    var btnClicked = function(mouse){
-        console.log(mouse);
-    }
-    btn.addEventListener("click", btnClicked)
-}
+
+var whichButton = function (e) {
+    // Handle different event models
+    var data = e.target.dataset.value
+    switch (data) {
+        case "clear":
+            console.log("Clearing");
+            break;
+        case "solve":
+            console.log("SOLVING IT!!!");
+            console.log(display.value)
+            break;
+        default:
+            console.log("Concatting numbers meh");
+            display.value+= data;
+    };
+};

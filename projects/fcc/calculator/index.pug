@@ -1,28 +1,29 @@
 html
     head
         title Calculator Project
+        link(type="text/css" rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css")
         link(type="text/css" rel="stylesheet" href="css/style.css")
     body
         h1 The Calculator Projectx
         div.calculator
-            input(type="text").display
+            input(type="text")#display
             div.numpad
-                div.btn(data-value="1") 1
-                    div.func
-                        div.add
-                        div.sub
-                        div.mul
-                        div.div
-                div.btn(data-value="2") 2
-                div.btn(data-value="3") 3
-                div.btn(data-value="4") 4
-                div.btn(data-value="5") 5
-                div.btn(data-value="6") 6
-                div.btn(data-value="7") 7
-                div.btn(data-value="8") 8
-                div.btn(data-value="9") 9
-                div.btn(data-value="clear") CE
-                div.btn(data-value="0") 0
-                div.btn(data-value="solve") =
-
+                button.btn(data-value="1" onclick="whichButton(event)") 1
+                button.btn(data-value="2" onclick="whichButton(event)") 2
+                button.btn(data-value="3" onclick="whichButton(event)") 3
+                button.btn(data-value="4" onclick="whichButton(event)") 4
+                button.btn(data-value="5" onclick="whichButton(event)") 5
+                button.btn(data-value="6" onclick="whichButton(event)") 6
+                button.btn(data-value="7" onclick="whichButton(event)") 7
+                button.btn(data-value="8" onclick="whichButton(event)") 8
+                button.btn(data-value="9" onclick="whichButton(event)") 9
+                button.btn(data-value="clear" onclick="whichButton(event)") CE
+                button.btn(data-value="0" onclick="whichButton(event)") 0
+                button.btn(data-value="solve" onclick="whichButton(event)") =
+            div.func
+                button.btn(data-value="+" onclick="whichButton(event)") +
+                button.btn(data-value="-" onclick="whichButton(event)") -
+                button.btn(data-value="*" onclick="whichButton(event)") *
+                button.btn(data-value="/" onclick="whichButton(event)") /
+                
         script(src="js/script.js")
