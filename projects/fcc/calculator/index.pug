@@ -7,15 +7,22 @@ html
         div.calculator
             input(type="text").display
             div.numpad
-                div.btn 1
-                div.btn 2
-                div.btn 3
-                div.btn 4
-                div.btn 5
-                div.btn 6
-                div.btn 7
-                div.btn 8
-                div.btn 9
-                div.btn CE
-                div.btn 0
-                div.btn =
+                div.btn(data-value="1") 1
+                    div.func
+                        div.add
+                        div.sub
+                        div.mul
+                        div.div
+                div.btn(data-value="2") 2
+                div.btn(data-value="3") 3
+                div.btn(data-value="4") 4
+                div.btn(data-value="5") 5
+                div.btn(data-value="6") 6
+                div.btn(data-value="7") 7
+                div.btn(data-value="8") 8
+                div.btn(data-value="9") 9
+                div.btn(data-value="clear") CE
+                div.btn(data-value="0") 0
+                div.btn(data-value="solve") =
+
+        script(src="js/script.js")

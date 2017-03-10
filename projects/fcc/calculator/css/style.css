@@ -26,20 +26,20 @@ body > h1 {
   margin: auto;
   box-shadow: 0px 0px 500px 1px #910000;
   padding: 1em; }
+  .calculator .btn {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    text-align: center;
+    width: 4em;
+    height: 4em;
+    margin: 0.35em;
+    border-radius: 100%;
+    background: #ff9e9e; }
   .calculator .numpad {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around; }
-    .calculator .numpad .btn {
-      display: flex;
-      flex-flow: column wrap;
-      justify-content: center;
-      text-align: center;
-      width: 4em;
-      height: 4em;
-      margin: 0.35em;
-      border-radius: 100%;
-      background: #ff9e9e; }
   .calculator .display {
     color: #FFF;
     font-size: 18px;
