@@ -12,7 +12,8 @@ var whichButton = function (e) {
             break;
         case "solve":
             console.log("SOLVING IT!!!");
-            console.log(display.value)
+
+            console.log(Number(display.value));
             break;
         default:
             console.log("Concatting numbers meh");
