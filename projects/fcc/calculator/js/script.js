@@ -9,14 +9,30 @@ var whichButton = function (e) {
     switch (data) {
         case "clear":
             console.log("Clearing");
+            display.value = "";
             break;
         case "solve":
-            console.log("SOLVING IT!!!");
+            var operations = display.value.match(/\W/g);
+            var num = display.value.split(/\W/g);
+            console.log(operations, num);
 
-            console.log(Number(display.value));
+            var result = 0;
+
+            for(var i=0; i < operations.length; i++){
+                if ( operations[i] == '+' ) {
+                    if (i===0){
+                        result += Number(num[i]) + Number(num[i+1]);
+                    } else{
+                        result += Number(num[i+1]);
+                    }
+
+                }
+            }
+
+            display.value = result;
+
             break;
         default:
-            console.log("Concatting numbers meh");
             display.value+= data;
     };
 };

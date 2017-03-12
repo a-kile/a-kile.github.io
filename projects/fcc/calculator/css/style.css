@@ -61,5 +61,10 @@ body > h1 {
     border-radius: 100%;
     background: #ff9e9e;
     border: none; }
+  .calculator button:hover {
+    cursor: pointer;
+    background: #ff6b6b; }
+  .calculator button:focus {
+    outline: none; }
 
 /*# sourceMappingURL=style.css.map */
