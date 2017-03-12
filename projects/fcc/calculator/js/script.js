@@ -16,16 +16,33 @@ var whichButton = function (e) {
             var num = display.value.split(/\W/g);
             console.log(operations, num);
 
-            var result = 0;
+            var result;
 
             for(var i=0; i < operations.length; i++){
                 if ( operations[i] == '+' ) {
                     if (i===0){
-                        result += Number(num[i]) + Number(num[i+1]);
+                        result = Number(num[i]) + Number(num[i+1]);
                     } else{
                         result += Number(num[i+1]);
                     }
-
+                } else if (operations[i] == '-'){
+                    if (i===0){
+                        result = Number(num[i]) - Number(num[i+1]);
+                    } else{
+                        result -= Number(num[i+1]);
+                    }
+                } else if (operations[i] == '*'){
+                    if (i===0){
+                        result = Number(num[i]) * Number(num[i+1]);
+                    } else{
+                        result *= Number(num[i+1]);
+                    }
+                } else if (operations[i] == '/'){
+                    if (i===0){
+                        result = Number(num[i]) / Number(num[i+1]);
+                    } else{
+                        result /= Number(num[i+1]);
+                    }
                 }
             }
 
