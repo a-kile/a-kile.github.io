@@ -1,12 +1,11 @@
 
 
-@font-face
-    font-family: 'plexifont'
-    src: url('media/plexifont.ttf')
-
-
-
 $screenbreak : 1050px
+
+@font-face
+    font-family: plexi
+    src: url(../media/plexifont.ttf)
+
 
 =flex($type, $direction, $position)
     display: $type
@@ -18,7 +17,6 @@ body
     background: radial-gradient(lighten(#283E40, 5%) , #000)
     .art
         color: #FFF
-        font-family: 'plexifont', sans-serif
         +flex(flex, column wrap, center)
         width: 100%
         height: 100vh
@@ -33,4 +31,13 @@ body
             @media screen and (max-width: $screenbreak)
                 background-position: 50% 100%
     .context
+        font-family: 'plexi', sans-serif
+        z-index: 1000
         position: absolute
+        +flex(flex, column wrap, flex-start)
+        text-align: center
+        width: 100%
+        height: 100vh
+        .heading
+            color: #FFF
+            font-size: 10em
