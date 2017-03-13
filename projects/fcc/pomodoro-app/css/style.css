@@ -21,10 +21,10 @@ body {
       height: 100vh;
       background: url("../media/land.svg") no-repeat;
       background-size: 100%;
-      background-position: 0% 50%; }
+      background-position: center; }
       @media screen and (max-width: 1050px) {
         body .art .land {
-          background-position: 50% 100%; } }
+          background-position: bottom; } }
     body .art #tree1 {
       z-index: 90;
       position: absolute;
@@ -52,6 +52,11 @@ body {
       font-size: 10em; }
       @media screen and (max-width: 1050px) {
         body .context .heading {
+          margin-top: 1em;
+          font-size: 10em; } }
+      @media screen and (max-width: 1400px) {
+        body .context .heading {
+          margin-top: 0.5em;
           font-size: 5em; } }
 
 /*# sourceMappingURL=style.css.map */
