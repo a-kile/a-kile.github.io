@@ -1,6 +1,7 @@
 
-
-$screenbreak : 1050px
+$desk : 1024px
+$tab : 900px
+$mob : 425px
 $light-size: 70em
 @font-face
     font-family: plexi
@@ -13,6 +14,8 @@ $light-size: 70em
     flex-flow: $direction
     justify-content: $position
 
+
+
 body
     +flex(flex, column wrap, flex-start)
     overflow: hidden
@@ -23,6 +26,7 @@ body
         width: 100%
         height: 100vh
         background: linear-gradient(#000 -15%, #5CBF9B 30%, #FFCE84)
+        text-align: center
         .land
             z-index: 100
             position: absolute
@@ -31,8 +35,11 @@ body
             background: url('../media/land.svg') no-repeat
             background-size: 100%
             background-position: center
-            @media screen and (max-width: $screenbreak)
+            transition: all 1s
+            bottom: -50px
+            @media screen and (max-width: $desk)
                 background-position: bottom
+                transform: translateX(1.1) scaleY(1.1)
         #tree1
             z-index: 90
             position: absolute
@@ -40,10 +47,29 @@ body
             min-width: 300px
             min-height: 1000px
             background: url('../media/tree1.svg') no-repeat
-            background-size: 70%
+            background-size: 120%
             background-position: left
-            @media screen and (max-width: $screenbreak)
-                background-size: 82%
+            transition: all 1s
+        .hourglass
+            color: #FFF
+            height: 700px
+            width: 400px
+            margin: auto
+            transition: all 1s
+            background: url('../media/lantern.svg') no-repeat
+            background-size: 100%
+            background-position: bottom
+            overflow: hidden
+            +flex(flex, column wrap, center)
+            text-align: center
+            .mask
+                z-index: 80
+                background-clip: content-box
+                color: #FFF
+                height: 500px
+                width: 900px
+                transition: all 1s
+                background: rgba(0,0,0,0.5)
     .context
         font-family: 'plexi', sans-serif
         z-index: 1000
@@ -52,12 +78,25 @@ body
         text-align: center
         width: 100%
         height: 100vh
+        perspective: 1000px
         .heading
+            +flex(flex, column wrap, center)
+            width: 100%
+            min-height: 5vh
+            top: 0
             color: #FFF
-            font-size: 10em
-            @media screen and (max-width: $screenbreak)
-                margin-top: 1em
-                font-size: 10em
-            @media screen and (max-width: 1400px)
-                margin-top: .5em
+            font-size: 5em
+            transition: all 1s
+            /*@media screen and (max-width: 768px )
+                transform: rotateX(10deg) scale(56)
+                top: 0
                 font-size: 5em
+                height: 10vh
+                background: linear-gradient(white 80%, transparent)
+                color: #000*/
+            @media screen and (max-width: $desk)
+                top: 0
+                font-size: 4em
+                height: 10vh
+                background: linear-gradient(rgba(255,255,255,0.2) 90%, transparent)
+                color: #FFF
