@@ -8,6 +8,8 @@ var sessionrunning = false;
 var stime = 0;
 var btime = 0;
 
+var horn = new Audio('media/horn.mp3');
+
 function end(){
     // Toggle icons
     trigger.classList.toggle("ion-ios-gear-outline");
@@ -44,10 +46,9 @@ function session(){
         var elapsed = 0;
 
         setTimeout(function(){
-            console.log("AHHHHHHHH")
+            horn.play();
             end();
-        }, 1000)
-
+        }, stime*1000)
 
         /*
         setTimeout(function(){
