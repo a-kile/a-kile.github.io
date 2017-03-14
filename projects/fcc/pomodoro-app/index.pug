@@ -1,13 +1,21 @@
 html
     head
         title Pomodoro App
+        link(rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css")
         link(rel="stylesheet" type="text/css" href="css/reset.css")
         link(rel="stylesheet" type="text/css" href="css/style.css")
     body
-        div.art
-            div.land
-            div#tree1
-            div.hourglass
-                
-        div.context
-            div.heading POMODORO!
+        .control
+            button(onclick="session()").ion-ios-gear-outline#trigger
+            div#settings
+                div.notification CLICK THE GEAR TO START!
+                h1 POMODORO
+                input(type="number" placeholder="Session Time")#sessiontime
+                h2 Minutes
+                input(type="number" placeholder="Break Time")#breaktime
+                h2 Minutes
+        .static
+            .land
+            .progress
+                .mask
+        script(src="script.js")
