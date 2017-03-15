@@ -36,17 +36,17 @@ trigger.addEventListener("click", function(e){
         hide();
         running = true;
         var elapsed = 0;
-        setInterval(function(){
-            console.log(elapsed);
+        var session = setInterval(function(){
             if (elapsed == sessiontime.value){
-                console.log("DONE DONE DON")
                 show();
                 running = false;
                 elapsed = 0;
+                clearInterval(session);
             } else{
                 hide();
                 running = true;
                 elapsed++;
+                console.log(elapsed)
                 var h = elapsed/(sessiontime.value) * 100  + "%";
                 progress.animate([
                     {height: progress.style.height},
