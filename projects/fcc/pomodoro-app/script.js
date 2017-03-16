@@ -7,6 +7,8 @@ var running = false;
 var sessiontime = document.getElementById("sessiontime");
 var breaktime = document.getElementById("breaktime");
 
+var sessionColor = "#FFF88C";
+var breakColor = "#d32f2f";
 
 
 function playSound(sound) {
@@ -25,20 +27,70 @@ function show() {
 }
 
 function valid() {
-  if (!sessiontime.value) {
+  if (!sessiontime.value && !breaktime.value) {
     return false;
-  } else if (sessiontime.value) {
+} else if (sessiontime.value && breaktime.value) {
     return true;
   }
 }
 
+trigger.addEventListener("click", function(e){
+    var validity = valid();
+    if (validity){
+        hide();
+        var stime = sessiontime.value * 60; // Session time in minutes
+        var btime = breaktime.value * 60; // Break time in minutes
+        progress.style.height = "0px";
+        var session = true;
+        var brk = false;
+        var elapsed = 0;
+        var Round = setInterval(function(){
+            if(session && elapsed != stime && !brk){
+                elapsed++;
+                var h = elapsed / stime * 100 + "%";
+                progress.animate([
+                  {height: progress.style.height},
+                  {height: h}], {
+                  duration: 500
+                })
+                progress.style.height = h;
+            }else if(session && elapsed == stime && !brk){
+                progress.style.height = "0px";
+                session = false;
+                brk = true;
+                elapsed = 0;
+                console.log("SESSION FINISHED")
+                progress.style.background = breakColor;
+            } else if(!session && brk && elapsed != btime){
+                elapsed++;
+                var h = elapsed / btime * 100 + "%";
+                progress.animate([
+                  {height: progress.style.height},
+                  {height: h}], {
+                  duration: 500
+                })
+                progress.style.height = h;
+            } else if(!session &&  brk && elapsed == btime ){
+                progress.style.height = "0px";
+                brk = false;
+                session = true;
+                elapsed = 0;
+                console.log("BREAK FINISHED")
+                progress.style.background = sessionColor;
+            }
+        }, 1000)
+    } else {
+        // Do something if the validity is not there!
+    }
+})
 
+/*
 trigger.addEventListener("click", function (e) {
-  var validity = valid();
+
   if (!running && validity) {
     var stime = sessiontime.value * 60;
     var btime = breaktime.value * 60;
-    progress.style.height = "0px";
+
     hide();
     running = true;
     var elapsed = 0;
@@ -56,18 +108,7 @@ trigger.addEventListener("click", function (e) {
         running = true;
         elapsed++;
         console.log(elapsed)
-        var h = elapsed / stime * 100 + "%";
-        progress.animate([
-          {
-            height: progress.style.height
-          },
-          {
-            height: h
-          }
-                ], {
-          duration: 500
-        })
-        progress.style.height = h;
+
 
       }
     }, 1000)
@@ -76,3 +117,4 @@ trigger.addEventListener("click", function (e) {
     running = false;
   }
 })
+*/
