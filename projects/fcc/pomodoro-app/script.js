@@ -45,6 +45,7 @@ trigger.addEventListener("click", function(e){
         var stime = sessiontime.value * 60; // Session time in minutes
         var btime = breaktime.value * 60; // Break time in minutes
         progress.style.height = "0px";
+        progress.style.background = sessionColor;
         var session = true;
         var brk = false;
         var elapsed = 0;
