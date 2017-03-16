@@ -2,13 +2,13 @@
 var settings = document.getElementById("settings");
 var trigger = document.getElementById("trigger");
 var progress = document.getElementById("prog");
-var horn = new Audio('media/horn.mp3');
+var session_horn = new Audio('media/session_horn.wav');
+var break_horn = new Audio('media/break_horn.wav');
 var running = false;
 var sessiontime = document.getElementById("sessiontime");
 var breaktime = document.getElementById("breaktime");
-
-var sessionColor = "#FFF88C";
-var breakColor = "#d32f2f";
+var sessionColor = "linear-gradient(30deg, #FFF88C, transparent, #FFF88C)";
+var breakColor = "linear-gradient(30deg, #d32f2f, transparent, #d32f2f)";
 
 
 function playSound(sound) {
@@ -18,12 +18,12 @@ function playSound(sound) {
 
 function hide() {
   settings.style.display = "none";
-  trigger.style.display = "none";
+  //trigger.style.display = "none";
 }
 
 function show() {
   settings.style.display = "flex";
-  trigger.style.display = "flex";
+  //trigger.style.display = "flex";
 }
 
 function valid() {
@@ -34,9 +34,13 @@ function valid() {
   }
 }
 
+var Round;
+
 trigger.addEventListener("click", function(e){
     var validity = valid();
-    if (validity){
+    if (!running && validity){
+        running = true;
+        playSound(session_horn)
         hide();
         var stime = sessiontime.value * 60; // Session time in minutes
         var btime = breaktime.value * 60; // Break time in minutes
@@ -44,7 +48,7 @@ trigger.addEventListener("click", function(e){
         var session = true;
         var brk = false;
         var elapsed = 0;
-        var Round = setInterval(function(){
+        Round = setInterval(function(){
             if(session && elapsed != stime && !brk){
                 elapsed++;
                 var h = elapsed / stime * 100 + "%";
@@ -61,7 +65,7 @@ trigger.addEventListener("click", function(e){
                 elapsed = 0;
                 console.log("SESSION FINISHED")
                 progress.style.background = breakColor;
-                playSound(horn);
+                playSound(break_horn);
             } else if(!session && brk && elapsed != btime){
                 elapsed++;
                 var h = elapsed / btime * 100 + "%";
@@ -78,45 +82,13 @@ trigger.addEventListener("click", function(e){
                 elapsed = 0;
                 console.log("BREAK FINISHED")
                 progress.style.background = sessionColor;
-                playSound(horn);
+                playSound(session_horn);
             }
         }, 1000)
-    } else {
-        // Do something if the validity is not there!
+    } else if (running) {
+        running = false;
+        clearInterval(Round);
+        console.log("CLEARED!");
+        show();
     }
 })
-
-/*
-trigger.addEventListener("click", function (e) {
-
-  if (!running && validity) {
-    var stime = sessiontime.value * 60;
-    var btime = breaktime.value * 60;
-
-    hide();
-    running = true;
-    var elapsed = 0;
-    var session = setInterval(function () {
-      if (elapsed == stime) {
-        playSound(horn);
-        show();
-        running = false;
-        elapsed = 0;
-        var break = setInterval(function(){
-            if()
-        }, 1000)
-      } else {
-        hide();
-        running = true;
-        elapsed++;
-        console.log(elapsed)
-
-
-      }
-    }, 1000)
-  } else if (running) {
-    show();
-    running = false;
-  }
-})
-*/
