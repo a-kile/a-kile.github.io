@@ -61,6 +61,7 @@ trigger.addEventListener("click", function(e){
                 elapsed = 0;
                 console.log("SESSION FINISHED")
                 progress.style.background = breakColor;
+                playSound(horn);
             } else if(!session && brk && elapsed != btime){
                 elapsed++;
                 var h = elapsed / btime * 100 + "%";
@@ -77,6 +78,7 @@ trigger.addEventListener("click", function(e){
                 elapsed = 0;
                 console.log("BREAK FINISHED")
                 progress.style.background = sessionColor;
+                playSound(horn);
             }
         }, 1000)
     } else {
