@@ -2,6 +2,8 @@
 var settings = document.getElementById("settings");
 var trigger = document.getElementById("trigger");
 var progress = document.getElementById("prog");
+var notification = document.getElementById("notification");
+var close_notification = document.getElementById("n-close");
 var session_horn = new Audio('media/session_horn.wav');
 var break_horn = new Audio('media/break_horn.wav');
 var running = false;
@@ -9,6 +11,11 @@ var sessiontime = document.getElementById("sessiontime");
 var breaktime = document.getElementById("breaktime");
 var sessionColor = "linear-gradient(30deg, #FFF88C, transparent, #FFF88C)";
 var breakColor = "linear-gradient(30deg, #d32f2f, transparent, #d32f2f)";
+
+notification.style.display = "none";
+close_notification.addEventListener("click", function(){
+    notification.style.display = "none";
+})
 
 
 function playSound(sound) {
@@ -91,5 +98,7 @@ trigger.addEventListener("click", function(e){
         clearInterval(Round);
         console.log("CLEARED!");
         show();
+    } else if (!running && !validity){
+        notification.style.display = "flex";
     }
 })

@@ -8,7 +8,7 @@ html
         .control
             div.ion-ios-navigate-outline#trigger
             div#settings
-                div.notification CLICK THE ICON TO START/END!
+                div.note CLICK THE ICON TO START/END!
                 h1 POMODORO
                 input(type="number" placeholder="Session Time")#sessiontime
                 h2 MINUTES
@@ -18,4 +18,9 @@ html
             .land
             .progress
                 .mask#prog
+            #notification
+                i.ion-ios-alarm-outline
+                h1 Hold on!
+                p Did you set the session & break information?
+                div.ion-ios-close-empty.close#n-close
         script(src="script.js")

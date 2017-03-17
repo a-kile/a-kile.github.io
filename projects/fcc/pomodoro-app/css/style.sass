@@ -7,6 +7,7 @@ $light-size: 70em
 $glassoverlay: #FFF88C
 $white: rgba(255, 255,255,0.5)
 $controls: #403D39
+$error : #FF473D
 @font-face
     font-family: plexi
     src: url(../media/plexifont.ttf)
@@ -29,7 +30,7 @@ body
     overflow: hidden
     text-align: center
     .control
-        .notification
+        .note
             +flex(flex, column wrap, center)
             text-align: center
             border-radius: 5px
@@ -40,7 +41,7 @@ body
             color: #FFF
             opacity: 0.1
             transition: all .4s
-        .notification:hover
+        .note:hover
             opacity: 1
         #trigger
             z-index: 1500
@@ -133,3 +134,32 @@ body
                 filter: blur(10px)
         .progress:hover
             border: rgba(255,255,255,08) dashed 5px
+        #notification
+            +flex(flex, column wrap, center)
+            position: absolute
+            background: $error
+            color: #FFF
+            min-width: 100%
+            min-height: 100vh
+            z-index: 10000
+            i
+                font-size: 10em
+            h1
+                font-size: 5em
+            p
+                font-size: 3em
+            .close
+                position: absolute
+                top: 0
+                right: 0
+                margin: 1em
+                background: darken($error, 20%)
+                min-width: 1.5em
+                min-height: 1.5em
+                text-align: center
+                +flex(flex, column wrap, center)
+                border-radius: 100%
+                font-size: 3em
+            .close:hover
+                cursor: pointer
+                background: darken($error, 30%)
