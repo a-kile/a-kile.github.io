@@ -48,6 +48,8 @@ var Round;
 trigger.addEventListener("click", function(e){
     var validity = valid();
     if (!running && validity){
+        trigger.classList.toggle("ion-ios-navigate-outline");
+        trigger.classList.toggle("ion-ios-gear-outline");
         running = true;
         playSound(session_horn)
         hide();
@@ -74,7 +76,6 @@ trigger.addEventListener("click", function(e){
                 session = false;
                 brk = true;
                 elapsed = 0;
-                console.log("SESSION FINISHED")
                 dstme.innerText = "";
                 progress.style.background = breakColor;
                 playSound(break_horn);
@@ -88,13 +89,12 @@ trigger.addEventListener("click", function(e){
                 })
                 progress.style.height = h;
 
-                dbtme.innerText = "Break | Time left : " + String(stime-elapsed);
+                dbtme.innerText = "Break | Time left : " + String(btime-elapsed);
             } else if(!session &&  brk && elapsed == btime ){
                 progress.style.height = "0px";
                 brk = false;
                 session = true;
                 elapsed = 0;
-                console.log("BREAK FINISHED")
                 dbtme.innerText = "";
                 progress.style.background = sessionColor;
                 playSound(session_horn);
@@ -103,9 +103,12 @@ trigger.addEventListener("click", function(e){
     } else if (!running && !validity){
         notification.style.display = "flex";
     } else if (running) {
+        trigger.classList.toggle("ion-ios-navigate-outline");
+        trigger.classList.toggle("ion-ios-gear-outline");
         running = false;
+        dbtme.innerText = "";
+        dstme.innerText = "";
         clearInterval(Round);
-        console.log("CLEARED!");
         show();
     }
 })
