@@ -12,6 +12,8 @@ var breaktime = document.getElementById("breaktime");
 var sessionColor = "linear-gradient(30deg, #FFF88C, transparent, #FFF88C)";
 var breakColor = "linear-gradient(30deg, #d32f2f, transparent, #d32f2f)";
 
+var dstme = document.getElementById("stime");
+var dbtme = document.getElementById("btime");
 notification.style.display = "none";
 close_notification.addEventListener("click", function(){
     notification.style.display = "none";
@@ -66,12 +68,14 @@ trigger.addEventListener("click", function(e){
                   duration: 500
                 })
                 progress.style.height = h;
+                dstme.innerText = "Session | Time left : " + String(stime-elapsed);
             }else if(session && elapsed == stime && !brk){
                 progress.style.height = "0px";
                 session = false;
                 brk = true;
                 elapsed = 0;
                 console.log("SESSION FINISHED")
+                dstme.innerText = "";
                 progress.style.background = breakColor;
                 playSound(break_horn);
             } else if(!session && brk && elapsed != btime){
@@ -83,12 +87,15 @@ trigger.addEventListener("click", function(e){
                   duration: 500
                 })
                 progress.style.height = h;
+
+                dbtme.innerText = "Break | Time left : " + String(stime-elapsed);
             } else if(!session &&  brk && elapsed == btime ){
                 progress.style.height = "0px";
                 brk = false;
                 session = true;
                 elapsed = 0;
                 console.log("BREAK FINISHED")
+                dbtme.innerText = "";
                 progress.style.background = sessionColor;
                 playSound(session_horn);
             }
