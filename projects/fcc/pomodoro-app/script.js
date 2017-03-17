@@ -93,12 +93,12 @@ trigger.addEventListener("click", function(e){
                 playSound(session_horn);
             }
         }, 1000)
+    } else if (!running && !validity){
+        notification.style.display = "flex";
     } else if (running) {
         running = false;
         clearInterval(Round);
         console.log("CLEARED!");
         show();
-    } else if (!running && !validity){
-        notification.style.display = "flex";
     }
 })
