@@ -43,14 +43,14 @@ function valid() {
   }
 }
 
-function parsetoMins(secs){
-    var s = secs;
-    var min = 0;
-    while(s > 60){
-        s-=60;
-        min+=1;
-    }
-    return min + ":" + s;
+function padZero(number) {
+ return (number < 10) ? ('0' + number) : number;
+}
+
+function parseToMins(secs) {
+  var minutes = Math.floor(secs / 60);
+  secs %= 60;
+ return padZero(minutes) + ':' + padZero(secs);
 }
 
 var Round;
@@ -80,7 +80,7 @@ trigger.addEventListener("click", function(e){
                   duration: 500
                 })
                 progress.style.height = h;
-                dstme.innerText = "Session | Time left : " + String(parsetoMins(stime-elapsed));
+                dstme.innerText = "Session | Time left : " + String(parseToMins(stime-elapsed));
             }else if(session && elapsed == stime && !brk){
                 progress.style.height = "0px";
                 session = false;
@@ -99,7 +99,7 @@ trigger.addEventListener("click", function(e){
                 })
                 progress.style.height = h;
 
-                dbtme.innerText = "Break | Time left : " + String(parsetoMins(btime-elapsed));
+                dbtme.innerText = "Break | Time left : " + String(parseToMins(btime-elapsed));
             } else if(!session &&  brk && elapsed == btime ){
                 progress.style.height = "0px";
                 brk = false;
