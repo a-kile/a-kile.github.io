@@ -99,4 +99,14 @@ body {
       border: 1px dashed #FFF;
       color: #FFF; }
 
+/* BOOT STRAP OVER WRITE */
+.btn-primary {
+  background: #DB5461;
+  border: none; }
+
+.btn-primary:hover {
+  background: #FFF;
+  cursor: pointer;
+  color: #DB5461; }
+
 /*# sourceMappingURL=tic-tac-toe.css.map */

@@ -1,5 +1,7 @@
 $canvas: 550px
 $warning: #DB5461
+$player: #1F9E7C,
+$player-hover: #109370,
 
 $sb-w: $canvas *0.8
 $sb-h: $canvas * .3
@@ -98,3 +100,12 @@ body
                 cursor: pointer
                 border: 1px dashed #FFF
                 color: #FFF
+
+/* BOOT STRAP OVER WRITE*/
+.btn-primary
+    background: $warning
+    border: none
+.btn-primary:hover
+    background: #FFF
+    cursor: pointer
+    color: $warning

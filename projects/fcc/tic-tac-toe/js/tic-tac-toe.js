@@ -1,11 +1,13 @@
 var gameboard = document.getElementById("game");
 var boxes = document.getElementsByClassName("box");
 var dash = document.getElementById("dash")
-var closeDash = document.getElementById("close");
+var trigger = document.getElementById("trigger");
+
 var heads = {
     obj: null,
     checked: false
 };
+
 heads.obj = document.getElementById("heads");
 var tails = {
     obj: null,
@@ -15,15 +17,19 @@ tails.obj = document.getElementById("tails");
 var colors = {
     defSelCol: "rgba(50, 48, 49, 0.2)",
     red: "#E3655B",
-    green: "#8CB369"
+    green: "#8CB369",
+    player: "#1F9E7C",
+    playerHover: "#109370",
+    computer: "#B244ED",
+    computerHover: "#6E2594"
 }
 var player;
 
 var coinSelected = false;
 
 heads.obj.addEventListener("click", function() {
-    coinSelected = true;
     if (!heads.checked) {
+        coinSelected = true;
         heads.checked = true;
         player = "heads";
         heads.obj.style.background = colors.red;
@@ -35,8 +41,8 @@ heads.obj.addEventListener("click", function() {
 })
 
 tails.obj.addEventListener("click", function() {
-    coinSelected = true;
     if (!tails.checked) {
+        coinSelected = true;
         tails.checked = true;
         player = "tails";
         tails.obj.style.background = colors.green;
@@ -51,8 +57,7 @@ tails.obj.addEventListener("click", function() {
 for (box in boxes) {
     if (typeof boxes[box] == "object") {
         boxes[box].addEventListener("mouseenter", function(e) {
-            var col = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
-            e.srcElement.style.background = col;
+            e.srcElement.style.background = colors.playerHover;
         });
         boxes[box].addEventListener("mouseleave", function(e) {
             e.srcElement.style.background = "white";
@@ -60,6 +65,10 @@ for (box in boxes) {
     }
 }
 
-closeDash.addEventListener("click", function() {
-    dash.style.display = "none"
+trigger.addEventListener("click", function(){
+    if(coinSelected){
+        dash.style.display = "none";
+    } else{
+        $('#coinCheck').modal();
+    }
 })

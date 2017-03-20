@@ -15,7 +15,7 @@ html
             .row.justify-content-around
                 .game#game
                     #dash
-                        .ion-ios-close-empty#close
+                        
                         .content
                             h1 TIC TAC TOE GAME
                             p Please select a coin
@@ -28,10 +28,6 @@ html
                                 button.btn.btn-lg.btn-primary#trigger PLAY
                     .boxes
                         .r
-                            .box a
-                            .box
-                            .box
-                        .r
                             .box
                             .box
                             .box
@@ -39,6 +35,17 @@ html
                             .box
                             .box
                             .box
+                        .r
+                            .box
+                            .box
+                            .box
+        .modal.fade#coinCheck
+            .modal-dialog(role="document")
+                .modal-content
+                    .modal-body
+                        p Did you select a coin? if not, please select!
+                    .modal-footer
+                        button(type="button" class="btn btn-primary" data-dismiss="modal") Alrighty
         script(src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous")
         script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous")
