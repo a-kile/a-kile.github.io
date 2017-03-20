@@ -24,9 +24,14 @@ body {
     height: 183.33333px;
     transition: all 0.5s;
     background: #FFF;
-    border: 0px dashed #cccccc; }
+    border: 0px dashed #cccccc;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px; }
   .game .box:hover {
-    background: #cccccc;
-    border: 1px dashed #FFF; }
+    border: 1px dashed #FFF;
+    color: #FFF; }
 
 /*# sourceMappingURL=tic-tac-toe.css.map */

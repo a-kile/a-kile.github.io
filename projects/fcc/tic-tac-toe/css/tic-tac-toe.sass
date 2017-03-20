@@ -1,5 +1,10 @@
 $canvas: 550px
 
+=flex($position, $direction)
+    display: flex
+    flex-flow: $position
+    justify-content: $direction
+
 body
     background: linear-gradient(45deg, #B7F0AD,#D2FF96,#EDFF7A, #E8D33F,#D17B0F)
 
@@ -26,6 +31,10 @@ body
         transition: all .5s
         background: #FFF
         border: 0px dashed darken(#FFF, 20%)
+        +flex(column wrap, center)
+        text-align: center
+        font-size: 30px
     .box:hover
-        background: darken(#FFF, 20%)
+
         border: 1px dashed #FFF
+        color: #FFF
