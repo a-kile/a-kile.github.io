@@ -86,8 +86,8 @@ body
         .r
             width: $canvas
             height: $canvas/3
+            +flex(row wrap, center)
             .box
-                float: left
                 width: $canvas/3
                 height: $canvas/3
                 transition: all .5s
@@ -95,10 +95,16 @@ body
                 border: 0px dashed darken(#FFF, 20%)
                 +flex(column wrap, center)
                 text-align: center
-                font-size: 30px
+                .checked
+                    +flex(column wrap, center)
+                    text-align: center
+                    width: $canvas/3
+                    height: $canvas/3
+                    color: #FFF
+                    font-size: 10em
+                    animation: pop .5s
             .box:hover
                 cursor: pointer
-                border: 1px dashed #FFF
                 color: #FFF
 
 /* BOOT STRAP OVER WRITE*/
@@ -109,3 +115,11 @@ body
     background: #FFF
     cursor: pointer
     color: $warning
+
+@keyframes pop
+    0%
+        transform: scale(0)
+    50%
+        transform: scale(1.2)
+    100%
+        transform: scale(1)

@@ -81,9 +81,11 @@ body {
       transform: scale(1.3); }
   .game .boxes .r {
     width: 550px;
-    height: 183.33333px; }
+    height: 183.33333px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center; }
     .game .boxes .r .box {
-      float: left;
       width: 183.33333px;
       height: 183.33333px;
       transition: all 0.5s;
@@ -92,11 +94,19 @@ body {
       display: flex;
       flex-flow: column wrap;
       justify-content: center;
-      text-align: center;
-      font-size: 30px; }
+      text-align: center; }
+      .game .boxes .r .box .checked {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        text-align: center;
+        width: 183.33333px;
+        height: 183.33333px;
+        color: #FFF;
+        font-size: 10em;
+        animation: pop 0.5s; }
     .game .boxes .r .box:hover {
       cursor: pointer;
-      border: 1px dashed #FFF;
       color: #FFF; }
 
 /* BOOT STRAP OVER WRITE */
@@ -108,5 +118,13 @@ body {
   background: #FFF;
   cursor: pointer;
   color: #DB5461; }
+
+@keyframes pop {
+  0% {
+    transform: scale(0); }
+  50% {
+    transform: scale(1.2); }
+  100% {
+    transform: scale(1); } }
 
 /*# sourceMappingURL=tic-tac-toe.css.map */

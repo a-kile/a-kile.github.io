@@ -23,7 +23,12 @@ var colors = {
     computer: "#B244ED",
     computerHover: "#6E2594"
 }
-var player;
+var player = {
+    coin: "",
+    color: ""
+};
+
+var numChecked = 0;
 
 var coinSelected = false;
 
@@ -31,37 +36,89 @@ heads.obj.addEventListener("click", function() {
     if (!heads.checked) {
         coinSelected = true;
         heads.checked = true;
-        player = "heads";
+        player.color = colors.red;
+        player.coin = "heads";
         heads.obj.style.background = colors.red;
         tails.obj.style.background = colors.defSelCol;
     } else if (heads.checked) {
-        heads.checked = false;;
-        heads.obj.style.background = colors.defSelCol;;
+        coinSelected = false;
+        heads.checked = false;
+        heads.obj.style.background = colors.defSelCol;
     }
 })
 
-tails.obj.addEventListener("click", function() {
+tails.obj.addEventListener("click", function(e) {
     if (!tails.checked) {
         coinSelected = true;
         tails.checked = true;
-        player = "tails";
+        player.coin = "tails";
+        player.color = colors.green;
         tails.obj.style.background = colors.green;
         heads.obj.style.background = colors.defSelCol;
     } else if (tails.checked) {
+        coinSelected = false;
         tails.checked = false;
         tails.obj.style.background = colors.defSelCol;;
     }
-
+    e.srcElement.removeEventListener("click", check)
 })
+
+function compCheck(){
+    var randomBox = boxes[Math.floor(Math.random() * 9)];
+    if (!randomBox.dataset.checked){
+        if(player.color == colors.red && player.coin == "heads"){
+            randomBox.dataset.checked = true;
+            var syb = document.createElement("div");
+            syb.classList.add("ion-ios-flower", "checked");
+            randomBox.append(syb);
+            randomBox.style.background = colors.green;
+        } else if(player.color == colors.green && player.coin == "tails"){
+            randomBox.dataset.checked = true;
+            var syb = document.createElement("div");
+            syb.classList.add("ion-ios-medical", "checked");
+            randomBox.append(syb);
+            randomBox.style.background = colors.red;
+        }
+    } else {
+        compCheck();
+    }
+}
+
+function check(e){
+    if(!e.srcElement.dataset.checked){
+        e.srcElement.removeEventListener("click", check);
+        console.log("EVENT LISTENER REMOVED")
+        e.srcElement.dataset.checked = true;
+        numChecked++;
+        e.srcElement.style.background = player.color;
+        if(player.coin == "heads"){
+            var syb = document.createElement("div");
+            syb.classList.add("ion-ios-medical", "checked");
+            e.srcElement.append(syb);
+        } else if (player.coin == "tails"){
+            var syb = document.createElement("div");
+            syb.classList.add("ion-ios-flower", "checked");
+            e.srcElement.append(syb);
+        }
+        compCheck();
+    } else if (e.srcElement.dataset.checked){
+        console.log("YOU CANT DO THIS!")
+    }
+}
 
 for (box in boxes) {
     if (typeof boxes[box] == "object") {
         boxes[box].addEventListener("mouseenter", function(e) {
-            e.srcElement.style.background = colors.playerHover;
+            if(!e.srcElement.dataset.checked){
+                e.srcElement.style.background = colors.playerHover;
+            }
         });
         boxes[box].addEventListener("mouseleave", function(e) {
-            e.srcElement.style.background = "white";
+            if(!e.srcElement.dataset.checked){
+                e.srcElement.style.background = "white";
+            }
         });
+        boxes[box].addEventListener("click",check);
     }
 }
 
