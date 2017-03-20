@@ -1,0 +1,30 @@
+body {
+  background: linear-gradient(45deg, #B7F0AD, #D2FF96, #EDFF7A, #E8D33F, #D17B0F); }
+
+.navbar {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: #4d4d4d; }
+
+.game {
+  width: 550px;
+  height: 550px;
+  background: #FFF;
+  margin-top: 3em;
+  margin-bottom: 3em;
+  border-radius: 10px;
+  box-shadow: 0px 10px 50px 0px rgba(0, 0, 0, 0.2);
+  overflow: hidden; }
+  .game .r {
+    width: 550px;
+    height: 183.33333px; }
+  .game .box {
+    float: left;
+    width: 183.33333px;
+    height: 183.33333px;
+    transition: all 0.5s;
+    background: #e6e6e6; }
+  .game .box:hover {
+    background: #cccccc; }
+
+/*# sourceMappingURL=tic-tac-toe.css.map */
