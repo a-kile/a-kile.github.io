@@ -23,8 +23,10 @@ body {
     width: 183.33333px;
     height: 183.33333px;
     transition: all 0.5s;
-    background: #e6e6e6; }
+    background: #FFF;
+    border: 0px dashed #cccccc; }
   .game .box:hover {
-    background: #cccccc; }
+    background: #cccccc;
+    border: 1px dashed #FFF; }
 
 /*# sourceMappingURL=tic-tac-toe.css.map */
