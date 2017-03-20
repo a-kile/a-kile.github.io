@@ -15,23 +15,56 @@ body {
   border-radius: 10px;
   box-shadow: 0px 10px 50px 0px rgba(0, 0, 0, 0.2);
   overflow: hidden; }
-  .game .r {
+  .game #dash {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 550px;
+    height: 550px;
+    background: linear-gradient(135deg, #323031, #595557); }
+    .game #dash .content {
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center; }
+    .game #dash #close {
+      position: relative;
+      left: 90%;
+      top: 1em;
+      width: 2em;
+      height: 2em;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      text-align: center;
+      background: #DB5461;
+      color: #FFF;
+      border-radius: 100%;
+      transition: all 0.2s; }
+    .game #dash #close:hover {
+      background: #FFF;
+      color: #DB5461;
+      cursor: pointer;
+      font-weight: bolder;
+      transform: scale(1.3); }
+  .game .boxes .r {
     width: 550px;
     height: 183.33333px; }
-  .game .box {
-    float: left;
-    width: 183.33333px;
-    height: 183.33333px;
-    transition: all 0.5s;
-    background: #FFF;
-    border: 0px dashed #cccccc;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    text-align: center;
-    font-size: 30px; }
-  .game .box:hover {
-    border: 1px dashed #FFF;
-    color: #FFF; }
+    .game .boxes .r .box {
+      float: left;
+      width: 183.33333px;
+      height: 183.33333px;
+      transition: all 0.5s;
+      background: #FFF;
+      border: 0px dashed #cccccc;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      text-align: center;
+      font-size: 30px; }
+    .game .boxes .r .box:hover {
+      cursor: pointer;
+      border: 1px dashed #FFF;
+      color: #FFF; }
 
 /*# sourceMappingURL=tic-tac-toe.css.map */
