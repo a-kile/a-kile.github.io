@@ -66,19 +66,18 @@ tails.obj.addEventListener("click", function(e) {
 function compCheck(){
     var randomBox = boxes[Math.floor(Math.random() * 9)];
     if (!randomBox.dataset.checked){
-        if(player.color == colors.red && player.coin == "heads"){
-            randomBox.dataset.checked = true;
-            var syb = document.createElement("div");
-            syb.classList.add("ion-ios-flower", "checked");
-            randomBox.append(syb);
-            randomBox.style.background = colors.green;
-        } else if(player.color == colors.green && player.coin == "tails"){
-            randomBox.dataset.checked = true;
-            var syb = document.createElement("div");
-            syb.classList.add("ion-ios-medical", "checked");
-            randomBox.append(syb);
-            randomBox.style.background = colors.red;
-        }
+        setTimeout(function(){
+            if(player.color == colors.red && player.coin == "heads"){
+                randomBox.dataset.checked = true;
+                randomBox.classList.add("ion-ios-flower", "checked");
+                randomBox.style.background = colors.green;
+            } else if(player.color == colors.green && player.coin == "tails"){
+                randomBox.dataset.checked = true;
+                randomBox.classList.add("ion-ios-medical", "checked");
+                randomBox.style.background = colors.green;
+                randomBox.style.background = colors.red;
+            }
+        }, 100)
     } else {
         compCheck();
     }
@@ -92,13 +91,9 @@ function check(e){
         numChecked++;
         e.srcElement.style.background = player.color;
         if(player.coin == "heads"){
-            var syb = document.createElement("div");
-            syb.classList.add("ion-ios-medical", "checked");
-            e.srcElement.append(syb);
+            e.srcElement.classList.add("ion-ios-medical", "checked");
         } else if (player.coin == "tails"){
-            var syb = document.createElement("div");
-            syb.classList.add("ion-ios-flower", "checked");
-            e.srcElement.append(syb);
+            e.srcElement.classList.add("ion-ios-flower", "checked");
         }
         compCheck();
     } else if (e.srcElement.dataset.checked){

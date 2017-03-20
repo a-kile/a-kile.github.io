@@ -95,16 +95,16 @@ body {
       flex-flow: column wrap;
       justify-content: center;
       text-align: center; }
-      .game .boxes .r .box .checked {
-        display: flex;
-        flex-flow: column wrap;
-        justify-content: center;
-        text-align: center;
-        width: 183.33333px;
-        height: 183.33333px;
-        color: #FFF;
-        font-size: 10em;
-        animation: pop 0.5s; }
+    .game .boxes .r .checked {
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      text-align: center;
+      width: 183.33333px;
+      height: 183.33333px;
+      color: #FFF;
+      font-size: 10em;
+      animation: pop 0.5s; }
     .game .boxes .r .box:hover {
       cursor: pointer;
       color: #FFF; }
