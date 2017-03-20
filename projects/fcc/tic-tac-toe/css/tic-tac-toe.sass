@@ -1,5 +1,8 @@
 $canvas: 550px
 $warning: #DB5461
+
+$sb-w: $canvas *0.8
+$sb-h: $canvas * .3
 =flex($position, $direction)
     display: flex
     flex-flow: $position
@@ -11,7 +14,8 @@ body
 .navbar
     border-bottom-right-radius: 10px
     border-bottom-left-radius: 10px
-    color: darken(#FFF, 70%)
+    color: #FFF
+    background: linear-gradient(135deg, #323031, #595557)
 .game
     width: $canvas
     height: $canvas
@@ -30,7 +34,34 @@ body
         height: $canvas
         background: linear-gradient(135deg, #323031, #595557)
         .content
+            width: $canvas
+            height: $canvas
             +flex(column wrap, center)
+            text-align: center
+            color: #FFF
+            .selectionbox
+                width: $sb-w
+                height: $sb-h
+                margin: 1em auto
+                border-radius: 10px
+                background: linear-gradient(transparent , transparentize(#323031, 0.3) 30%, transparent 100%)
+                +flex(row wrap, space-around)
+                .selection
+                    +flex(column wrap, center)
+                    text-align: center
+                    font-size: 100px
+                    background: transparentize(#323031, 0.8)
+                    width: $sb-w/2.4
+                    height: $sb-h*0.9
+                    margin: auto
+                    transition: all .5s
+                #heads:hover
+                    background: #E3655B
+                #tails:hover
+                    background: #8CB369
+                .selection:hover
+                    cursor: pointer
+                    background: transparentize(#323031, 0.3)
         #close
             position: relative
             left: 90%
