@@ -63,6 +63,8 @@ tails.obj.addEventListener("click", function(e) {
     e.srcElement.removeEventListener("click", check)
 })
 
+
+
 function compCheck(){
     var randomBox = boxes[Math.floor(Math.random() * 9)];
     if (!randomBox.dataset.checked){
@@ -77,6 +79,7 @@ function compCheck(){
                 randomBox.style.background = colors.green;
                 randomBox.style.background = colors.red;
             }
+            numChecked++;
         }, 100)
     } else {
         compCheck();
@@ -84,9 +87,8 @@ function compCheck(){
 }
 
 function check(e){
-    if(!e.srcElement.dataset.checked){
+    if(!e.srcElement.dataset.checked && numChecked < 9){
         e.srcElement.removeEventListener("click", check);
-        console.log("EVENT LISTENER REMOVED")
         e.srcElement.dataset.checked = true;
         numChecked++;
         e.srcElement.style.background = player.color;
@@ -101,6 +103,9 @@ function check(e){
     }
 }
 
+var cR = 1;
+var rB = 1;
+
 for (box in boxes) {
     if (typeof boxes[box] == "object") {
         boxes[box].addEventListener("mouseenter", function(e) {
@@ -113,7 +118,17 @@ for (box in boxes) {
                 e.srcElement.style.background = "white";
             }
         });
-        boxes[box].addEventListener("click",check);
+        if(rB == 3 || rB == 6 || rB ==9){
+            boxes[box].addEventListener("click", check);
+            boxes[box].dataset.position = cR + "," +rB;
+            rB++;
+            cR++;
+        } else {
+            boxes[box].addEventListener("click", check);
+            boxes[box].dataset.position = cR + "," + rB;
+            rB++;
+        }
+
     }
 }
 

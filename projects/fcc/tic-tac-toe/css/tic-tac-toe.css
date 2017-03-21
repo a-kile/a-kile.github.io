@@ -84,7 +84,8 @@ body {
     height: 183.33333px;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center; }
+    justify-content: center;
+    color: #FFF; }
     .game .boxes .r .box {
       width: 183.33333px;
       height: 183.33333px;
@@ -121,10 +122,12 @@ body {
 
 @keyframes pop {
   0% {
-    transform: scale(0); }
+    transform: scale(0);
+    border-radius: 100%; }
   50% {
     transform: scale(1.2); }
   100% {
-    transform: scale(1); } }
+    transform: scale(1);
+    border-radius: 0%; } }
 
 /*# sourceMappingURL=tic-tac-toe.css.map */
