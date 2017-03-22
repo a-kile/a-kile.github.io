@@ -35,6 +35,7 @@ var coinSelected = false;
 var rowVal = 0;
 var boxVal = 0;
 var objects = [[],[],[]];
+var gameRunning = false;
 
 heads.obj.addEventListener("click", function(e) {
     if (!heads.checked) {
@@ -44,6 +45,7 @@ heads.obj.addEventListener("click", function(e) {
         player.coin = "heads";
         heads.obj.style.background = colors.red;
         tails.obj.style.background = colors.defSelCol;
+        gameRunning = true;
     } else if (heads.checked) {
         coinSelected = false;
         heads.checked = false;
@@ -60,6 +62,7 @@ tails.obj.addEventListener("click", function(e) {
         player.color = colors.green;
         tails.obj.style.background = colors.green;
         heads.obj.style.background = colors.defSelCol;
+        gameRunning = true;
     } else if (tails.checked) {
         coinSelected = false;
         tails.checked = false;
@@ -68,17 +71,29 @@ tails.obj.addEventListener("click", function(e) {
     e.target.removeEventListener("click", check)
 })
 
+function who(a,b){
+    return objects[a][b].dataset.human == "true";
+}
 
-function Match(){
-    if((objects[0][0].dataset.human) && (objects[0][1].dataset.human) && (objects[0][2].dataset.human)){
-        console.log("HALLELUJAH")
-    }
+function Match() {
+  if(
+      who(0,0) && who(0,1) && who(0,2) && gameRunning ||
+      who(1,0) && who(1,1) && who(1,2) && gameRunning ||
+      who(2,0) && who(2,1) && who(2,2) && gameRunning ||
+      who(0,0) && who(1,1) && who(2,2) && gameRunning ||
+      who(2,0) && who(1,1) && who(0,2) && gameRunning
+  ){
+      gameRunning = false;
+      $("#userWin").modal();
+      console.log("WON!!");
+  }
 }
 
 
 function compCheck(){
+    Match();
     var randomBox = boxes[Math.floor(Math.random() * 9)];
-    if (!randomBox.dataset.checked){
+    if (!randomBox.dataset.checked && gameRunning){
         setTimeout(function(){
             randomBox.dataset.human = false;
             randomBox.dataset.checked = true;
@@ -91,13 +106,13 @@ function compCheck(){
             }
             numChecked++;
         }, 100)
-    } else {
+    } else if (gameRunning) {
         compCheck();
     }
 }
 
 function check(e){
-    if(!e.target.dataset.checked && numChecked < 9){
+    if(!e.target.dataset.checked && numChecked < 9 && gameRunning){
         e.target.removeEventListener("click", check);
         e.target.dataset.checked = true;
         numChecked++;
@@ -108,14 +123,9 @@ function check(e){
         } else if (player.coin == "tails"){
             e.target.classList.add("ion-ios-flower", "checked");
         }
-        Match();
-        if(numChecked < 9){
+        if(numChecked < 9 && gameRunning){
             compCheck();
         }
-
-
-    } else if (e.target.dataset.checked){
-        console.log("YOU CANT DO THIS!")
     }
 }
 
@@ -132,11 +142,12 @@ for (box in boxes) {
                 e.target.style.background = "white";
             }
         });
+
         if(boxVal == 2 || boxVal == 5 || boxVal == 8){
             boxes[box].addEventListener("click", check);
             objects[rowVal][boxVal] = boxes[box];
             rowVal++;
-            boxVal++;
+            boxVal = 0;
         } else {
             boxes[box].addEventListener("click", check);
             objects[rowVal][boxVal] = boxes[box];
@@ -144,6 +155,8 @@ for (box in boxes) {
         }
     }
 }
+
+console.log(objects);
 
 trigger.addEventListener("click", function(){
     if(coinSelected){
