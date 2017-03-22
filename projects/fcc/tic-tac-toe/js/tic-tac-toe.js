@@ -32,7 +32,11 @@ var numChecked = 0;
 
 var coinSelected = false;
 
-heads.obj.addEventListener("click", function() {
+var rowVal = 0;
+var boxVal = 0;
+var objects = [[],[],[]];
+
+heads.obj.addEventListener("click", function(e) {
     if (!heads.checked) {
         coinSelected = true;
         heads.checked = true;
@@ -45,6 +49,7 @@ heads.obj.addEventListener("click", function() {
         heads.checked = false;
         heads.obj.style.background = colors.defSelCol;
     }
+    e.target.removeEventListener("click", check)
 })
 
 tails.obj.addEventListener("click", function(e) {
@@ -60,23 +65,28 @@ tails.obj.addEventListener("click", function(e) {
         tails.checked = false;
         tails.obj.style.background = colors.defSelCol;;
     }
-    e.srcElement.removeEventListener("click", check)
+    e.target.removeEventListener("click", check)
 })
 
+
+function Match(){
+    if((objects[0][0].dataset.human) && (objects[0][1].dataset.human) && (objects[0][2].dataset.human)){
+        console.log("HALLELUJAH")
+    }
+}
 
 
 function compCheck(){
     var randomBox = boxes[Math.floor(Math.random() * 9)];
     if (!randomBox.dataset.checked){
         setTimeout(function(){
+            randomBox.dataset.human = false;
+            randomBox.dataset.checked = true;
             if(player.color == colors.red && player.coin == "heads"){
-                randomBox.dataset.checked = true;
                 randomBox.classList.add("ion-ios-flower", "checked");
                 randomBox.style.background = colors.green;
             } else if(player.color == colors.green && player.coin == "tails"){
-                randomBox.dataset.checked = true;
                 randomBox.classList.add("ion-ios-medical", "checked");
-                randomBox.style.background = colors.green;
                 randomBox.style.background = colors.red;
             }
             numChecked++;
@@ -87,48 +97,51 @@ function compCheck(){
 }
 
 function check(e){
-    if(!e.srcElement.dataset.checked && numChecked < 9){
-        e.srcElement.removeEventListener("click", check);
-        e.srcElement.dataset.checked = true;
+    if(!e.target.dataset.checked && numChecked < 9){
+        e.target.removeEventListener("click", check);
+        e.target.dataset.checked = true;
         numChecked++;
-        e.srcElement.style.background = player.color;
+        e.target.style.background = player.color;
+        e.target.dataset.human = true;
         if(player.coin == "heads"){
-            e.srcElement.classList.add("ion-ios-medical", "checked");
+            e.target.classList.add("ion-ios-medical", "checked");
         } else if (player.coin == "tails"){
-            e.srcElement.classList.add("ion-ios-flower", "checked");
+            e.target.classList.add("ion-ios-flower", "checked");
         }
-        compCheck();
-    } else if (e.srcElement.dataset.checked){
+        Match();
+        if(numChecked < 9){
+            compCheck();
+        }
+
+
+    } else if (e.target.dataset.checked){
         console.log("YOU CANT DO THIS!")
     }
 }
 
-var cR = 1;
-var rB = 1;
 
 for (box in boxes) {
     if (typeof boxes[box] == "object") {
         boxes[box].addEventListener("mouseenter", function(e) {
-            if(!e.srcElement.dataset.checked){
-                e.srcElement.style.background = colors.playerHover;
+            if(!e.target.dataset.checked){
+                e.target.style.background = colors.playerHover;
             }
         });
         boxes[box].addEventListener("mouseleave", function(e) {
-            if(!e.srcElement.dataset.checked){
-                e.srcElement.style.background = "white";
+            if(!e.target.dataset.checked){
+                e.target.style.background = "white";
             }
         });
-        if(rB == 3 || rB == 6 || rB ==9){
+        if(boxVal == 2 || boxVal == 5 || boxVal == 8){
             boxes[box].addEventListener("click", check);
-            boxes[box].dataset.position = cR + "," +rB;
-            rB++;
-            cR++;
+            objects[rowVal][boxVal] = boxes[box];
+            rowVal++;
+            boxVal++;
         } else {
             boxes[box].addEventListener("click", check);
-            boxes[box].dataset.position = cR + "," + rB;
-            rB++;
+            objects[rowVal][boxVal] = boxes[box];
+            boxVal++;
         }
-
     }
 }
 
