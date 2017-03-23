@@ -31,13 +31,15 @@ body {
       flex-flow: column wrap;
       justify-content: center;
       text-align: center;
-      color: #FFF; }
+      color: #FFF;
+      transition: all 0.7s; }
       .game #dash .content .selectionbox {
         width: 440px;
         height: 165px;
         margin: 1em auto;
         border-radius: 10px;
         background: linear-gradient(transparent, rgba(50, 48, 49, 0.7) 30%, transparent 100%);
+        transition: all 0.7s;
         display: flex;
         flex-flow: row wrap;
         justify-content: space-around; }

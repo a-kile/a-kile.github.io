@@ -1,7 +1,7 @@
 var gameboard = document.getElementById("game");
 var boxes = document.getElementsByClassName("box");
 var dash = document.getElementById("dash")
-var trigger = document.getElementById("trigger");
+var trigger = document.getElementById("playTrigger");
 
 var heads = {
     obj: null,
@@ -36,6 +36,7 @@ var rowVal = 0;
 var boxVal = 0;
 var objects = [[],[],[]];
 var gameRunning = false;
+
 
 heads.obj.addEventListener("click", function(e) {
     if (!heads.checked) {
@@ -75,6 +76,10 @@ function who(a,b){
     return objects[a][b].dataset.human == "true";
 }
 
+function com(a,b){
+    return objects[a][b].dataset.human == "false";
+}
+
 function Match() {
   if(
       who(0,0) && who(0,1) && who(0,2) && gameRunning ||
@@ -86,6 +91,21 @@ function Match() {
       gameRunning = false;
       $("#userWin").modal();
       console.log("WON!!");
+      setTimeout(function(){
+           window.location.reload(true);
+      }, 2000)
+  } else if (
+      com(0,0) && com(0,1) && com(0,2) && gameRunning ||
+      com(1,0) && com(1,1) && com(1,2) && gameRunning ||
+      com(2,0) && com(2,1) && com(2,2) && gameRunning ||
+      com(0,0) && com(1,1) && com(2,2) && gameRunning ||
+      com(2,0) && com(1,1) && com(0,2) && gameRunning
+  ){
+      gameRunning = false;
+      $("#userLose").modal();
+      setTimeout(function(){
+           window.location.reload(true);
+      }, 2000)
   }
 }
 
