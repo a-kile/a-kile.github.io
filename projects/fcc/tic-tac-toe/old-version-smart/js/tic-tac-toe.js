@@ -123,7 +123,7 @@ function checkFull(board) {
 First, it checks if 
 */
 function callAi(currentState, depth, player) {
-  
+    
 }
 
 function plot(box) {
